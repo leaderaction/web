@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header The Officer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+       
+
+        header {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background: #111;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 20px;
+            z-index: 1000;
+        }
+
+        .logo img {
+            height: 30px;
+        }
+
+        nav {
+            flex: 1;
+            margin-left: 20px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+        }
+
+        .extra-icons {
+            display: flex;
+            align-items: center;
+        }
+
+        .extra-icons i {
+            margin-left: 15px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 900px) {
+            nav {
+                display: none;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background: #111;
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            .nav-links {
+                flex-direction: column;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-active {
+                display: flex;
+            }
+        }
+
+
+
+        /* Sección Leader Actión */
+        .lideraction {
+            /* display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; */
+            height: 100vh;
+            margin-top: 30px;
+            padding: 25px;
+        }
+
+        .lideraction h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        /* Contenedor del árbol */
+        .tree-container {
+            /* display: flex;
+            align-items: flex-start;
+            justify-content: center; */
+            position: relative;
+        }
+
+        /* Línea vertical única */
+        .line {
+            width: 1px;
+            height: 0;
+            background: black;
+            position: absolute;
+            left: 20px;
+            top: 0;
+            animation: growLine 8s ease-out forwards;
+        }
+
+        /* Contenedor de los elementos */
+        .tree {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-left: 40px;
+        }
+
+        .node {
+            opacity: 0;
+            font-size: 1.2rem;
+            margin: 15px 0;
+            text-align: left;
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        /* Animaciones */
+        @keyframes growLine {
+            from {
+                height: 0;
+            }
+            to {
+                height: 550px;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Retraso en la aparición de cada nodo */
+        .node:nth-child(1) { animation-delay: 1s; }
+        .node:nth-child(2) { animation-delay: 1.5s; }
+        .node:nth-child(3) { animation-delay: 2s; }
+        .node:nth-child(4) { animation-delay: 2.5s; }
+        .node:nth-child(5) { animation-delay: 3s; }
+        .node:nth-child(6) { animation-delay: 3.5s; }
+        .node:nth-child(7) { animation-delay: 4s; }
+        .node:nth-child(8) { animation-delay: 4.5s; }
+        .node:nth-child(9) { animation-delay: 5s; }
+        .node:nth-child(10) { animation-delay: 5.5s; }
+
+
+         /* Contenedor de los botones */
+         .buttons {
+            position: absolute;
+            right: 80px;
+            max-width: 500px;
+            padding: 25px;
+            top: 50%;
+            background: black;
+            color: white;
+            transform: translateY(-50%);
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        /* Mostrar los botones al hacer hover */
+        .node:hover .buttons {
+            opacity: 1;
+            transform: translateY(-50%) translateX(10px);
+        }
+
+        /* Estilos de los botones */
+        .btn {
+            background: white;
+            color: black;
+            border: 2px solid black;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: black;
+            color: white;
+        }
+
+        /* Sección centrada */
+        .leads-section {
+            background: black;
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .leads-section h1 {
+            font-size: 4rem;
+            max-width: 900px;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .leads-section h2 {
+            font-size: 2rem;
+            max-width: 900px;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .leads-section p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards;
+            animation-delay: 0.5s;
+        }
+
+        /* Animación de entrada */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsividad */
+        @media (max-width: 768px) {
+            .leads-section h1 {
+        font-size: 30px;
+    }
+
+    .leads-section h2 {
+        font-size: 22px;
+    }
+            .leads-section p {
+                font-size: 18px;
+            }
+        }
+
+
+         /* Sección Conciencia */
+         .conciencia {
+            background: #f5f5f5;
+            color: black;
+            text-align: center;
+            padding: 60px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .conciencia h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        /* Contenedor de opciones */
+        .options {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 90%;
+            max-width: 700px;
+        }
+
+        /* Estilos para cada opción */
+        .option {
+            background: white;
+            color: black;
+            border: 2px solid black;
+            font-size: 1.2rem;
+            padding: 15px;
+            margin: 10px 0;
+            width: 100%;
+            text-align: left;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Estilo para los checkboxes */
+        .option input[type="checkbox"] {
+            margin-right: 10px;
+            transform: scale(1.2);
+        }
+
+        /* Efecto hover */
+        .option:hover {
+            background: black;
+            color: white;
+        }
+
+        /* Responsividad */
+        @media (max-width: 768px) {
+            .conciencia h1 {
+                font-size: 2.5rem;
+            }
+            .option {
+                font-size: 1rem;
+                padding: 12px;
+            }
+        }
+
+
+           /* Sección Nueva Llamada */
+           .llamada {
+            background: black;
+    color: white;
+    height: 100vh;
+    display: flex
+;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+        }
+
+        @media (max-width: 768px) {
+    .llamada h1 {
+        font-size: 30px!important;
+    }
+}
+
+        .llamada h1 {
+            font-size: 4rem;
+    max-width: 900px;
+    margin-bottom: 20px;
+    color: white;
+        }
+
+        .llamada p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            max-width: 800px;
+        }
+
+           /* Sección Estadísticas */
+           .estadisticas {
+            background: #fff;
+            color: black;
+            text-align: center;
+            padding: 60px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 15px;
+        }
+
+        .estadisticas h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #00796b;
+        }
+
+        .estadisticas p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            max-width: 800px;
+        }
+
+        /* Contenedor de las barras estadísticas */
+        .barra-container {
+            width: 90%;
+            max-width: 700px;
+            height: 40px;
+            background-color: #e0f7fa;
+            border-radius: 20px;
+            margin-top: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .barra {
+            height: 100%;
+            position: absolute;
+            top: 0;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+
+        .desechables {
+            background-color: #f44336; /* Rojo */
+            width: 16%;
+        }
+
+        .no-cualificados {
+            background-color: #ff9800; /* Naranja */
+            width: 25%;
+            left: 16%;
+        }
+
+        .no-urgentes {
+            background-color: #ffeb3b; /* Amarillo */
+            width: 35%;
+            left: 41%;
+        }
+
+        .potenciales {
+            background-color: #4caf50; /* Verde */
+            width: 35%;
+            left: 76%;
+        }
+
+        .estrategias {
+            background-color: #2196f3; /* Azul */
+            width: 10%;
+            left: 76%; /* Inicia al final de las oportunidades */
+        }
+
+        /* Leyenda de las categorías */
+        .leyenda {
+            display: flex;
+            justify-content: space-between;
+            width: 90%;
+            max-width: 700px;
+            margin-top: 20px;
+            font-size: 1.1rem;
+        }
+
+        .leyenda div {
+            display: flex;
+            align-items: center;
+        }
+
+        .leyenda span {
+            margin-left: 5px;
+        }
+
+        .desechables-box {
+            background-color: #f44336;
+            width: 20px;
+            height: 20px;
+        }
+
+        .no-cualificados-box {
+            background-color: #ff9800;
+            width: 20px;
+            height: 20px;
+        }
+
+        .no-urgentes-box {
+            background-color: #ffeb3b;
+            width: 20px;
+            height: 20px;
+        }
+
+        .potenciales-box {
+            background-color: #4caf50;
+            width: 20px;
+            height: 20px;
+        }
+
+        .estrategias-box {
+            background-color: #2196f3;
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Responsividad */
+        @media (max-width: 768px) {
+            .estadisticas h2 {
+                font-size: 2rem;
+            }
+        }
+
+           /* Sección Explicación de Estadísticas */
+           .estadisticas-explicacion {
+            background: #fff;
+            color: black;
+            padding: 60px 20px;
+            border-radius: 15px;
+            
+        }
+
+        .estadisticas-explicacion h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #00796b;
+        }
+
+        .estadisticas-explicacion p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            max-width: 800px;
+            line-height: 1.6;
+        }
+
+        .estadisticas-explicacion ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+
+        .estadisticas-explicacion ul li {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .estadisticas-explicacion ul li span {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+
+        .desechables-badge {
+            background-color: #f44336; /* Rojo */
+        }
+
+        .no-cualificados-badge {
+            background-color: #ff9800; /* Naranja */
+        }
+
+        .no-urgentes-badge {
+            background-color: #ffeb3b; /* Amarillo */
+        }
+
+        .potenciales-badge {
+            background-color: #4caf50; /* Verde */
+        }
+
+        .estrategias-badge {
+            background-color: #2196f3; /* Azul */
+        }
+
+        /* Responsividad */
+        @media (max-width: 768px) {
+            .estadisticas-explicacion h2 {
+                font-size: 2rem;
+            }
+
+            .estadisticas-explicacion p {
+                font-size: 1rem;
+            }
+        }
+
+        h2 {
+        border: 2px dashed green;
+        padding: 10px;
+    }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <div class="logo">
+        <img src="https://i.postimg.cc/0yzg4tht/logo-leader.png" alt="Logo">
+    </div>
+    
+    <nav>
+        <ul class="nav-links">
+            <li><a href="#">Empresas</a></li>
+            <li><a href="#">Directivos</a></li>
+            <li><a href="#">Tendencias</a></li>
+            <li><a href="#">Tech</a></li>
+            <li><a href="#">Out of Office</a></li>
+            <li><a href="#"><strong>Funds&More</strong></a></li>
+        </ul>
+    </nav>
+    <div class="extra-icons">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-search"></i>
+        <button style="background: white; color: black; padding: 5px 10px; border: none; cursor: pointer; font-weight: bold;">Newsletter</button>
+    </div>
+</header>
+
+<section class="lideraction">
+    <h1>Leader Action</h1>
+    <div class="tree-container">
+        <div class="node">
+            Campañas Publicitarias
+            <div class="buttons">
+                <p>Mantenemos unos resultados increíbles tanto en B2C como B2B con nuestra metodología SMART</p>
+                <div style="margin: 10px; display: flex;">
+                    <img src="Copia de Añadir un título.png" style="width: 200px;">
+                    <img src="Copia de Univers Next (2).png" style="width: 200px;">
+                </div>
+            </div>
+        </div>
+        <div class="node">
+            Diseños Vídeo e Imagen
+            <div class="buttons">
+                <p>Hacer un vídeo con un pitch perfecto no es cualquier cosa, si ya has probado algo así y no te ha funcionado te garantizamos que algo se ha hecho mal</p>
+                <div style="display: flex; align-items: center; justify-content: center;margin: 8px">
+                    <img src="fiver1.gif" style="width: 150px;">
+                    <img src="fiver2.gif" style="width: 150px;">
+                </div>
+                
+            </div>
+        </div>
+        <div class="node">
+            CRM
+            <div class="buttons">
+                <p style="margin-bottom: 10px;">Si ya tienes como empresa más de 5 leads al día necesitas un sistema donde realizar seguimientos de esos potenciales clientes</p>
+                <img src="WhatsApp Image 2025-02-24 at 10.18.04.jpeg" style="width: 250px;">
+                <img src="WhatsApp Image 2025-02-24 at 10.19.28.jpeg" style="width: 250px;">
+            </div>
+        </div>
+        <div class="node">
+            Automatizaciones
+            <div class="buttons">
+              <p>Las automatizaciones son fundamentales para mejorar los procesos comerciales. Un flujo de email , un seteo por Whatsapp todo de forma estratégica hace que te diferencies de la competencia</p>
+            </div>
+        </div>
+        <div class="node">
+            IA Agenda en Calendar
+            <div class="buttons">
+              <p>Una inteligencia artificial en tu whatsapp con acceso a tu calendario y que pueda cualificar y agendarte clientes potenciales</p>
+                <button class="btn" style="margin: 10px">Cómo lo hacemos</button>
+            </div>
+        </div>
+        <div class="node">
+            Agendas
+            <div class="buttons">
+                <p>Cientos de empresas tienen agendas en piloto automático , ayudamos a las empresas y les entregamos el lead en bandeja de plata.</p>
+                <img src="WhatsApp Image 2025-02-24 at 11.13.05.jpeg" style="width: 300px; margin: 10px;">
+            </div>
+        </div>
+        <div class="node">
+            Pitch de Ventas
+            <div class="buttons">
+                <p>Durante la llamada a un cliente potencial: <br>
+
+                    ¿Qué preguntas claves se están realizando?<br>
+                    ¿Qué oferta?<br>
+                    ¿Qué propuesta o presupuesto se envia y cómo se envía?<br>
+                    ¿Qué compromiso y fechas se le da al cliente para tomar acción?
+                </p>
+            </div>
+        </div>
+        <div class="node">
+            Compromiso
+            <div class="buttons">
+                <p>¿Estás enviando PDFs / Dossieres / Emails perfectos en 2025?</p>
+                <p>¿Podrías enviar una propuesta en menos de 5 minutos?</p>
+            </div>
+        </div>
+        <div class="node">
+            Cierre
+            <div class="buttons">
+               <p>¿Tienes un proceso en el que comunicas al lead su falta de compromiso y seriedad de una forma elegante?</p>
+               <p>Un cliente no te compra , ¿Tienes un sistema automático aportando valor (SIN INTENTAR VENDER) cada X tiempo?</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="leads-section">
+    <h1>¿Quieres más leads cualificados?</h1>
+    <h2>Pero has tenido malas experiencias...</h2>
+</section>
+<section class="conciencia">
+    <h1>Abramos la mente y analicemos 🧠</h1>
+    <p>Selecciona todos para explicarte más</p>
+
+    <div class="options">
+        <label class="option"><input type="checkbox"> Tengo un producto o servicio terminado y operativo</label>
+        <label class="option"><input type="checkbox"> Tengo una oferta</label>
+        <label class="option"><input type="checkbox"> Quiero una plataforma para mejorar los seguimientos</label>
+        <label class="option"><input type="checkbox"> Tengo yo o mi equipo comercial 1 - 2h diarias sólo para vender</label>
+        <label class="option"><input type="checkbox"> Tengo un pitch de llamada de Venta irrechazable</label>
+        <label class="option"><input type="checkbox"> Estoy abierto a hacer seguimientos correctos para exprimir todas las oportunidades</label>
+        <label class="option"><input type="checkbox"> Comprometo a mi cliente potencial en tiempos, pagos y formas</label>
+        <label class="option"><input type="checkbox"> Entiendo que al poner IA en mi negocio potencia pero mi base Comercial es crucial</label>
+    </div>
+</section>
+
+
+<!-- Nueva Sección Llamada -->
+<section class="llamada">
+    <h1>¿Realmente crees que con el ticket de tu servicio, una llamada es suficiente?</h1>
+    <p>Es probable que las ventas no se cierren solo con una llamada, incluso si el producto o servicio es excepcional. Una llamada puede ser solo el primer paso en un proceso de comunicación y seguimiento adecuado que necesita ser nutrido. Sin un sistema de ventas y seguimiento estructurado, es difícil mantener el interés y cerrar oportunidades.</p>
+</section>
+
+
+<!-- Nueva Sección Estadísticas -->
+<section class="estadisticas">
+    <h2>Estadísticas de 100 Leads</h2>
+    <p>Distribución de clientes basada en el análisis de 100 leads generados:</p>
+
+    <!-- Barra de distribución -->
+    <div class="barra-container">
+        <div class="barra desechables">16%</div>
+        <div class="barra no-cualificados">25% </div>
+        <div class="barra no-urgentes">35% </div>
+        <div class="barra potenciales">35% </div>
+        <div class="barra estrategias">10% </div>
+    </div>
+
+    <!-- Leyenda de categorías -->
+    <div class="leyenda">
+        <div><div class="desechables-box"></div><span>16% Desechables</span></div>
+        <div><div class="no-cualificados-box"></div><span>25% No Cualificados</span></div>
+        <div><div class="no-urgentes-box"></div><span>35% No Urgentes</span></div>
+        <div><div class="potenciales-box"></div><span>35% Potenciales</span></div>
+        <div><div class="estrategias-box"></div><span>10% Estrategias</span></div>
+    </div>
+</section>
+
+<!-- Sección de Explicación de Estadísticas -->
+<section class="estadisticas-explicacion">
+    <h2>16% Desechables</h2>
+    <p>En el mercado digital siempre habrá un porcentaje de leads que no son realmente potenciales. Esto se debe a que plataformas como Facebook y TikTok no son perfectas y, a menudo, entran leads falsos, bots, o contactos no genuinos. Esto es algo con lo que todos los negocios deben contar.</p>
+
+    <h2>25% No Cualificados</h2>
+    <p>Existen personas reales que se registran por curiosidad, pero no tienen ninguna relación con la oferta que estás promoviendo. Este margen también debe ser considerado, ya que es una parte del proceso que no necesariamente se puede evitar.</p>
+
+    <h2>35% No Urgentes</h2>
+    <p>Este es el pilar de todo el proceso. Separar a los clientes cualificados según su urgencia nos ayuda a reducir operativa innecesaria y a facturar más con menos recursos. No todos los leads necesitan la misma atención o el mismo enfoque.</p>
+
+    <h2>35% Potenciales</h2>
+    <p>Dentro de este porcentaje, encontramos leads que son cualificados pero que aún no tienen la actitud adecuada para cerrar una venta. Depende 100% del proceso comercial. Aquí entran elementos cruciales como sistemas automáticos de WhatsApp, flujos de correos electrónicos, control de CRM, pitch de venta, plazos de oferta, y la postura durante la llamada. El objetivo es lograr que el lead se comprometa y pague.</p>
+
+    <h2>10% Estrategias</h2>
+    <p>Sabemos que el 99% de las empresas que nos buscan ya han pasado por estos procesos, pero somos tan buenos en lo que hacemos que podemos duplicar este porcentaje de forma estratégica. Nuestra misión es mejorar la conversión de este pequeño porcentaje de clientes, maximizando el rendimiento de cada oportunidad.</p>
+</section>
+
+
+
+
+<script>
+    function toggleMenu() {
+        document.querySelector("nav").classList.toggle("nav-active");
+    }
+</script>
+
+</body>
+</html>
