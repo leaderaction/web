@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directivos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+            font-size: 16px;
+        }
+
+        /* Sticky header */
+        header {
+            position: sticky;
+            top: 0;
+            background-color: #111;
+            color: white;
+            padding: 15px 20px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo img {
+            height: 40px;
+        }
+
+        header nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        header nav ul li {
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+        }
+
+        header .social-icons i {
+            margin: 0 10px;
+            font-size: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 40px;
+            color: #00796b;
+        }
+
+        .team {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 30px;
+        }
+
+        .team-member {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 280px;
+            text-align: center;
+            padding: 20px;
+            transition: transform 0.3s ease;
+            overflow: hidden;
+        }
+
+        .team-member:hover {
+            transform: scale(1.05);
+        }
+
+        .team-member img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #00796b;
+        }
+
+        .position {
+            font-size: 1rem;
+            margin-bottom: 15px;
+            color: #777;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-icons a {
+            color: #00796b;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #333;
+        }
+
+        .bio {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #555;
+            margin-top: 15px;
+        }
+
+        .bio span {
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .team-member {
+                width: 100%;
+                max-width: 350px;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="https://i.postimg.cc/0yzg4tht/logo-leader.png" alt="Logo">
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Sobre Nosotros</a></li>
+                <li><a href="#">Servicios</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <div class="social-icons">
+            <a href="https://www.linkedin.com" target="_blank" class="fab fa-linkedin"></a>
+            <a href="https://www.instagram.com" target="_blank" class="fab fa-instagram"></a>
+        </div>
+    </header>
+
+    <!-- Directivos -->
+    <div class="container">
+        <h1>Conoce a nuestros Directivos</h1>
+
+        <div class="team">
+
+            <!-- Ismael Gonzalez -->
+            <div class="team-member">
+                <img src="https://celdranabogados.com/otros/ismael.png" alt="Ismael Gonzalez">
+                <div class="name">Ismael Gonzalez</div>
+                <div class="position">CEO de Stumarketing y Socio Principal en Leader Action</div>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/ismaelgonzalez" target="_blank" class="fab fa-linkedin"></a>
+                    <a href="https://www.instagram.com/ismaelgonzalez" target="_blank" class="fab fa-instagram"></a>
+                </div>
+                <div class="bio">
+                    <p><span>Recorrido:</span> Con más de 20 años de experiencia en el sector, Ismael es un líder en ventas que ha trabajado para grandes marcas como <span>Gafas Venice, Natura Center</span> y <span>Comprar Limpieza</span>. Ahora, es socio principal en Leader Action.</p>
+                </div>
+            </div>
+
+            <!-- Julio Duarte -->
+            <div class="team-member">
+                <img src="https://celdranabogados.com/otros/julio.png" alt="Julio Duarte">
+                <div class="name">Julio Duarte</div>
+                <div class="position">CEO de iPartners</div>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/julioduarte" target="_blank" class="fab fa-linkedin"></a>
+                    <a href="https://www.instagram.com/julioduarte" target="_blank" class="fab fa-instagram"></a>
+                </div>
+                <div class="bio">
+                    <p><span>Recorrido:</span> Julio ha trabajado en CLYB Company y ha tenido diversos proyectos en Ecommerce y Digitalización de despachos de abogados, y hoy lidera iPartners con gran éxito en la industria.</p>
+                </div>
+            </div>
+
+            <!-- Juan Carlos Cruz -->
+            <div class="team-member">
+                <img src="https://celdranabogados.com/otros/juancarloscruz.png" alt="Juan Carlos Cruz">
+                <div class="name">Juan Carlos Cruz</div>
+                <div class="position">CEO de iPartners</div>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/juancarloscruz" target="_blank" class="fab fa-linkedin"></a>
+                    <a href="https://www.instagram.com/juancarloscruz" target="_blank" class="fab fa-instagram"></a>
+                </div>
+                <div class="bio">
+                    <p><span>Recorrido:</span> Juan Carlos es el creador de la plataforma Iappoint.tech y ha estado involucrado en el desarrollo de numerosos proyectos innovadores en tecnología y software.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+
+</html>
